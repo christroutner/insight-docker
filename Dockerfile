@@ -44,3 +44,12 @@ RUN ./autogen.sh
 RUN ./configure
 RUN make
 RUN make install
+
+#Create a directory for holding blockchain data
+VOLUME /home/insight/blockchain-data
+
+# Testnet configuration file
+COPY config/testnet-example/bitcoin.conf /home/insight/blockchain-data/bitcoin.conf
+
+# Install bitcore
+RUN runuser -l insight -c "npm install -g bitcore"
