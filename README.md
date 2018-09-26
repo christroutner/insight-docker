@@ -12,7 +12,8 @@ Right now the Docker container targets BCH **testnet**. This repository may
 be expanded in the future to cover mainnet.
 
 ## Installation
-These directions are geared at Ubuntu 18.04 OS with at least 2GB of RAM.
+These directions are geared at Ubuntu 18.04 OS with at least 2GB of RAM,
+and a non-root user with sudo privledges.
 The testnet blockchain data takes up about 25GB of space.
 Your mileage may vary.
 
@@ -41,3 +42,8 @@ shows how to install Docker on a Ubuntu system.
 `./run-image`
 
 * After the blockchain syncs, you can access the insight server at port 3001
+
+
+## Ideas for future improvement:
+* Expand the setup for mainnet
+* Figure out a way to skip building bitcoin-abc from source.
