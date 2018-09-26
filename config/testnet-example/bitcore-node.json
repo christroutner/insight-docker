@@ -1,0 +1,23 @@
+{
+  "network": "testnet",
+  "port": 3001,
+  "services": ["bitcoind", "insight-api", "insight-ui", "web"],
+  "servicesConfig": {
+    "insight-ui": {
+      "routePrefix": "",
+      "apiPrefix": "api"
+    },
+
+    "insight-api": {
+      "routePrefix": "api",
+      "disableRateLimiter": true
+    },
+
+    "bitcoind": {
+      "spawn": {
+        "datadir": "/home/insight/blockchain-data",
+        "exec": "/home/insight/bitcoin-abc/src/bitcoind"
+      }
+    }
+  }
+}

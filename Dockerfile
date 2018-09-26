@@ -47,9 +47,32 @@ RUN make install
 
 #Create a directory for holding blockchain data
 VOLUME /home/insight/blockchain-data
+# Insight server UI
+EXPOSE 3001
+
 
 # Testnet configuration file
 COPY config/testnet-example/bitcoin.conf /home/insight/blockchain-data/bitcoin.conf
 
 # Install bitcore
-RUN runuser -l insight -c "npm install -g bitcore"
+#RUN runuser -l insight -c "npm install -g bitcore"
+
+# Switch to user account.
+USER insight
+# Prep 'sudo' commands.
+RUN echo 'password' | sudo -S pwd
+
+
+# Install bitcore
+RUN npm install -g bitcore
+# Install insight API server and UI
+#RUN bitcore install osagga/insight-api#cash_v4 insight-ui
+
+# Create bitcore project
+#RUN bitcore create mynode-abc && cd mynode-abc
+
+# Copy *testnet* config
+#COPY config/testnet-example/bitcore-node.json /home/insight/mynode-abc
+
+#WORKDIR /home/insight/mynode-abc
+#CMD ["bitcore", "start"]
