@@ -1,3 +1,2 @@
 #!/bin/bash
-docker container run --name insight-bch --rm -v ~/blockchain-data:/home/insight/blockchain-data -it insight-bch /bin/bash
-
+docker container run --name insight-bch --rm -v ~/blockchain-data:/home/insight/blockchain-data -p 3001:3001 -p 18332:18332 -p 28331:28331 -p 18333:18333 -it insight-bch /bin/bash

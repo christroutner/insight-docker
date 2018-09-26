@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# This script contains any final commands that should be run before
+# the main program is executed.
+
+cp ~/.bitcoin/bitcoin.conf ~/blockchain-data/
