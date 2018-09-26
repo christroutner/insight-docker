@@ -51,7 +51,7 @@ VOLUME /home/insight/blockchain-data
 EXPOSE 3001
 EXPOSE 28331
 EXPOSE 18332
-
+EXPOSE 18333
 
 # Testnet configuration file
 RUN mkdir /home/insight/.bitcoin
@@ -80,8 +80,6 @@ COPY config/testnet-example/bitcore-node.json /home/insight/mynode-abc
 # Very important that this file is copied before starting bitcore.
 RUN echo 'password' | sudo -S pwd
 RUN sudo cp /home/insight/.bitcoin/bitcoin.conf /home/insight/blockchain-data
-
-EXPOSE 18333
 
 # Startup bitcore, insight, and the full node.
 CMD ["/home/insight/.npm-global/bin/bitcore", "start"]
