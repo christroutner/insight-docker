@@ -43,6 +43,12 @@ shows how to install Docker on a Ubuntu system.
 
 * After the blockchain syncs, you can access the insight server at port 3001
 
+**Note**: It's important that the
+[bitcoin.conf](config/testnet-example/bitcoin.conf)
+file get copied to the `~/blockchain-data` directory. If it is not, bitcore
+will generate it's own (incorrect) copy. If things are behaving as expected,
+inspect the `~/blockchain-data/bitcoin.conf` file first.
+
 
 ## Ideas for future improvement:
 * Expand the setup for mainnet
