@@ -52,7 +52,8 @@ EXPOSE 3001
 
 
 # Testnet configuration file
-COPY config/testnet-example/bitcoin.conf /home/insight/blockchain-data/bitcoin.conf
+RUN mkdir /home/insight/.bitcoin
+COPY config/testnet-example/bitcoin.conf /home/insight/.bitcoin/bitcoin.conf
 
 # Install bitcore
 #RUN runuser -l insight -c "npm install -g bitcore"
@@ -65,14 +66,18 @@ RUN echo 'password' | sudo -S pwd
 
 # Install bitcore
 RUN npm install -g bitcore
-# Install insight API server and UI
-#RUN bitcore install osagga/insight-api#cash_v4 insight-ui
 
 # Create bitcore project
-#RUN bitcore create mynode-abc && cd mynode-abc
+WORKDIR /home/insight
+RUN /home/insight/.npm-global/bin/bitcore create mynode-abc
+WORKDIR /home/insight/mynode-abc
+
+# Install insight API server and UI
+#RUN bitcore install osagga/insight-api#cash_v4 insight-ui
+RUN /home/insight/.npm-global/bin/bitcore install osagga/insight-api#cash_v4 insight-ui
 
 # Copy *testnet* config
-#COPY config/testnet-example/bitcore-node.json /home/insight/mynode-abc
+COPY config/testnet-example/bitcore-node.json /home/insight/mynode-abc
 
 #WORKDIR /home/insight/mynode-abc
-#CMD ["bitcore", "start"]
+CMD ["/home/insight/.npm-global/bin/bitcore", "start"]

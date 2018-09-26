@@ -1,3 +1,2 @@
 #!/bin/bash
-docker container run --name insight-bch -d -v ~/.p2pvps/logs/listing-manager:/usr/src/app/logs --rm insight-bch
-
+docker container run --name insight-bch -d -v ~/blockchain-data:/home/insight/blockchain-data --rm insight-bch
