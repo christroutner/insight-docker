@@ -8,7 +8,7 @@ MAINTAINER Chris Troutner <chris.troutner@gmail.com>
 
 #Update the OS and install any OS packages needed.
 RUN apt-get update
-RUN apt-get install -y sudo git curl nano
+RUN apt-get install -y sudo git curl nano gnupg
 
 #Install Node and NPM
 RUN curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh

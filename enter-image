@@ -1,0 +1,3 @@
+#!/bin/bash
+docker container run --name insight-bch --rm -v ~/.p2pvps/logs/listing-manager:/usr/src/app/logs -it insight-bch /bin/bash
+
