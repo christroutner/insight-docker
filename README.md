@@ -41,7 +41,8 @@ shows how to install Docker on a Ubuntu system.
 
 `./run-image`
 
-* After the blockchain syncs, you can access the insight server at port 3001
+* After the blockchain syncs, you can access the insight server at port 3001.
+You can check on progress with the command `docker logs insight-bch`.
 
 **Note**: It's important that the
 [bitcoin.conf](config/testnet-example/bitcoin.conf)
