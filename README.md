@@ -47,8 +47,9 @@ You can check on progress with the command `docker logs insight-bch`.
 **Note**: It's important that the
 [bitcoin.conf](config/testnet-example/bitcoin.conf)
 file get copied to the `~/blockchain-data` directory. If it is not, bitcore
-will generate it's own (incorrect) copy. If things are behaving as expected,
-inspect the `~/blockchain-data/bitcoin.conf` file first.
+will generate it's own (incorrect) copy. If things are behaving unexpectedly,
+inspect the `~/blockchain-data/bitcoin.conf` file first. The `./run-image` script
+will copy the config file before starting the image.
 
 
 ## Ideas for future improvement:
