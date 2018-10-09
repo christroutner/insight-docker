@@ -48,14 +48,15 @@ RUN make install
 #Create a directory for holding blockchain data
 VOLUME /home/insight/blockchain-data
 # Insight server UI
-EXPOSE 3001
-EXPOSE 28331
-EXPOSE 18332
-EXPOSE 18333
+EXPOSE 3002
+#EXPOSE 28331
+#EXPOSE 18332
+#EXPOSE 18333
 
 # Testnet configuration file
 RUN mkdir /home/insight/.bitcoin
-COPY config/testnet-example/bitcoin.conf /home/insight/.bitcoin/bitcoin.conf
+#COPY config/testnet-example/bitcoin.conf /home/insight/.bitcoin/bitcoin.conf
+COPY config/mainnet-example/bitcoin.conf /home/insight/.bitcoin/bitcoin.conf
 
 # Switch to user account.
 USER insight
@@ -74,7 +75,8 @@ WORKDIR /home/insight/mynode-abc
 RUN /home/insight/.npm-global/bin/bitcore install osagga/insight-api#cash_v4 insight-ui
 
 # Copy *testnet* config
-COPY config/testnet-example/bitcore-node.json /home/insight/mynode-abc
+#COPY config/testnet-example/bitcore-node.json /home/insight/mynode-abc
+COPY config/mainnet-example/bitcore-node.json /home/insight/mynode-abc
 
 # Copy the bitcoin.conf file to the blockchain-data dir.
 # Very important that this file is copied before starting bitcore.
