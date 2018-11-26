@@ -47,11 +47,6 @@ RUN make install
 
 #Create a directory for holding blockchain data
 VOLUME /home/insight/blockchain-data
-# Insight server UI
-EXPOSE 3002
-#EXPOSE 28331
-#EXPOSE 18332
-#EXPOSE 18333
 
 RUN mkdir /home/insight/.bitcoin
 
@@ -84,6 +79,12 @@ COPY config/testnet-example/bitcore-node.json /home/insight/mynode-abc
 # Very important that this file is copied before starting bitcore.
 RUN echo 'password' | sudo -S pwd
 RUN sudo cp /home/insight/.bitcoin/bitcoin.conf /home/insight/blockchain-data
+
+# Insight server UI
+# Testnet
+EXPOSE 3001
+# Mainnet
+#EXPOSE 3002
 
 # Startup bitcore, insight, and the full node.
 CMD ["/home/insight/.npm-global/bin/bitcore", "start"]
