@@ -86,6 +86,9 @@ EXPOSE 3001
 # Mainnet
 #EXPOSE 3002
 
+# ZeroMQ
+EXPOSE 28331
+
 # Startup bitcore, insight, and the full node.
 CMD ["/home/insight/.npm-global/bin/bitcore", "start"]
 
