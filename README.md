@@ -1,3 +1,7 @@
+*Deprecated*: This Docker container uses v3 of Insight API and depends on a Bitprim fork of the BCH ABC full node.
+Bitprim never released a v0.19.x fork of ABC, so the Insigh API contained in this Docker container was forked off
+the network on May 15th, 2019.
+
 # insight-docker
 This repository contains a Dockerfile and bash shell scripts for building
 a Docker-based Bitpay Insight API server and bitcoin-abc v18.0 full node.
