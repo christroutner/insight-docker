@@ -16,7 +16,7 @@
     "bitcoind": {
       "spawn": {
         "datadir": "/home/insight/blockchain-data",
-        "exec": "/home/insight/bitcoin-abc/src/bitcoind"
+        "exec": "/home/insight/bitcore-abc/src/bitcoind"
       }
     }
   }

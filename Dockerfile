@@ -1,4 +1,4 @@
-# Creates a BCH Insight API Server and bitcoin-abc v18.0 Full Node.
+# Creates a BCH Insight API Server and bitcoin-abc v19.6 Full Node.
 # Based on this gist:
 # https://gist.github.com/christroutner/d43eebbe99e155b0558f97e450451124
 
