@@ -32,9 +32,14 @@ RUN echo "export PATH=~/.npm-global/bin:$PATH" >> /home/insight/.profile
 RUN runuser -l insight -c "npm config set prefix '~/.npm-global'"
 
 # Clone the bitprim fork of the bitcoin-abc BCH full node
-RUN git clone https://github.com/bitprim/bitcoin-abc
-WORKDIR /home/insight/bitcoin-abc
-RUN git checkout 0.18.2-bitcore
+#RUN git clone https://github.com/bitprim/bitcoin-abc
+#WORKDIR /home/insight/bitcoin-abc
+#RUN git checkout 0.18.2-bitcore
+
+# Clone the v0.19.x fork of the bitcoin-abc BCH full node with extra indexing
+RUN git clone https://github.com/valbergconsulting/bitcore-abc
+WORKDIR /home/insight/bitcore-abc
+RUN git checkout 0.19.6-bitcore
 
 # Install dependencies for building full node from source
 RUN apt-get install -y build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils libminiupnpc-dev libzmq3-dev libboost-all-dev libdb++-dev libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
