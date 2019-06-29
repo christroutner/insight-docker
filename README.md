@@ -12,7 +12,7 @@ server is required by
 [rest.bitcoin.com](https://github.com/Bitcoin-com/rest.bitcoin.com)
 API server.
 
-This branch targets BCH **testnet**.
+This branch targets BCH **mainnet**.
 
 ## Installation
 These directions are geared at Ubuntu 18.04 OS with at least 2GB of RAM,
