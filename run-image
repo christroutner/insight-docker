@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# Ensure the config file is in place
-cp config/testnet-example/bitcoin.conf ~/blockchain-data-insight/
-
-# Run the insight-bch Docker image
-docker container run --name insight-bch -d -v ~/blockchain-data-insight:/home/insight/blockchain-data -p 3001:3001 -p 28331:28331 insight-bch-0.19.6

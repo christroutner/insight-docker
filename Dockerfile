@@ -31,11 +31,6 @@ RUN chown -R insight .npm-global
 RUN echo "export PATH=~/.npm-global/bin:$PATH" >> /home/insight/.profile
 RUN runuser -l insight -c "npm config set prefix '~/.npm-global'"
 
-# Clone the bitprim fork of the bitcoin-abc BCH full node
-#RUN git clone https://github.com/bitprim/bitcoin-abc
-#WORKDIR /home/insight/bitcoin-abc
-#RUN git checkout 0.18.2-bitcore
-
 # Clone the v0.19.x fork of the bitcoin-abc BCH full node with extra indexing
 RUN git clone https://github.com/valbergconsulting/bitcore-abc
 WORKDIR /home/insight/bitcore-abc
@@ -79,6 +74,7 @@ RUN /home/insight/.npm-global/bin/bitcore install osagga/insight-api#cash_v4 ins
 # Copy *testnet* config
 COPY config/testnet-example/bitcore-node.json /home/insight/mynode-abc
 #COPY config/mainnet-example/bitcore-node.json /home/insight/mynode-abc
+COPY config/testnet-example/start-bitcoind.sh /home/insight/start-bitcoind.sh
 
 # Copy the bitcoin.conf file to the blockchain-data dir.
 # Very important that this file is copied before starting bitcore.
