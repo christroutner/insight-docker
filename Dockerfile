@@ -74,7 +74,6 @@ RUN /home/insight/.npm-global/bin/bitcore install osagga/insight-api#cash_v4 ins
 # Copy *testnet* config
 COPY config/testnet-example/bitcore-node.json /home/insight/mynode-abc
 #COPY config/mainnet-example/bitcore-node.json /home/insight/mynode-abc
-COPY config/testnet-example/start-bitcoind.sh /home/insight/start-bitcoind.sh
 
 # Copy the bitcoin.conf file to the blockchain-data dir.
 # Very important that this file is copied before starting bitcore.
