@@ -1,4 +1,4 @@
-# Creates a BCH Insight API Server and bitcoin-abc v18.0 Full Node.
+# Creates a BCH Insight API Server and bitcoin-abc v19.6 Full Node.
 # Based on this gist:
 # https://gist.github.com/christroutner/d43eebbe99e155b0558f97e450451124
 
@@ -31,10 +31,10 @@ RUN chown -R insight .npm-global
 RUN echo "export PATH=~/.npm-global/bin:$PATH" >> /home/insight/.profile
 RUN runuser -l insight -c "npm config set prefix '~/.npm-global'"
 
-# Clone the bitprim fork of the bitcoin-abc BCH full node
-RUN git clone https://github.com/bitprim/bitcoin-abc
-WORKDIR /home/insight/bitcoin-abc
-RUN git checkout 0.18.2-bitcore
+# Clone the v0.19.x fork of the bitcoin-abc BCH full node with extra indexing
+RUN git clone https://github.com/valbergconsulting/bitcore-abc
+WORKDIR /home/insight/bitcore-abc
+RUN git checkout 0.19.6-bitcore
 
 # Install dependencies for building full node from source
 RUN apt-get install -y build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils libminiupnpc-dev libzmq3-dev libboost-all-dev libdb++-dev libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
@@ -51,9 +51,9 @@ VOLUME /home/insight/blockchain-data
 RUN mkdir /home/insight/.bitcoin
 
 # Testnet configuration file
-COPY config/testnet-example/bitcoin.conf /home/insight/.bitcoin/bitcoin.conf
+#COPY config/testnet-example/bitcoin.conf /home/insight/.bitcoin/bitcoin.conf
 # Mainnet configuration file
-#COPY config/mainnet-example/bitcoin.conf /home/insight/.bitcoin/bitcoin.conf
+COPY config/mainnet-example/bitcoin.conf /home/insight/.bitcoin/bitcoin.conf
 
 # Switch to user account.
 USER insight
@@ -72,8 +72,8 @@ WORKDIR /home/insight/mynode-abc
 RUN /home/insight/.npm-global/bin/bitcore install osagga/insight-api#cash_v4 insight-ui
 
 # Copy *testnet* config
-COPY config/testnet-example/bitcore-node.json /home/insight/mynode-abc
-#COPY config/mainnet-example/bitcore-node.json /home/insight/mynode-abc
+#COPY config/testnet-example/bitcore-node.json /home/insight/mynode-abc
+COPY config/mainnet-example/bitcore-node.json /home/insight/mynode-abc
 
 # Copy the bitcoin.conf file to the blockchain-data dir.
 # Very important that this file is copied before starting bitcore.
