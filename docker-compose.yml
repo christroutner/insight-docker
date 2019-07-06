@@ -3,8 +3,8 @@ insight-testnet:
   dockerfile: Dockerfile
   container_name: insight-testnet
   ports:
-    - "3001:3001"   # API endpoint
-    - "28331:28331" # ZMQ port
+    - "13100:3001"   # API endpoint
+    - "13101:28331" # ZMQ port
   volumes:
     - ../blockchain-data:/home/insight/blockchain-data
     #- ~/tmp:/home/insight/blockchain-data
