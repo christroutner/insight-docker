@@ -77,8 +77,8 @@ COPY config/mainnet-example/bitcore-node.json /home/insight/mynode-abc
 
 # Copy the bitcoin.conf file to the blockchain-data dir.
 # Very important that this file is copied before starting bitcore.
-RUN echo 'password' | sudo -S pwd
-RUN sudo cp /home/insight/.bitcoin/bitcoin.conf /home/insight/blockchain-data
+#RUN echo 'password' | sudo -S pwd
+#RUN sudo cp /home/insight/.bitcoin/bitcoin.conf /home/insight/blockchain-data
 
 # Insight server UI
 # Testnet
@@ -90,7 +90,14 @@ EXPOSE 3001
 EXPOSE 28331
 
 # Startup bitcore, insight, and the full node.
-CMD ["/home/insight/.npm-global/bin/bitcore", "start"]
+#CMD ["/home/insight/.npm-global/bin/bitcore", "start"]
 
-#COPY finalsetup finalsetup
+WORKDIR /home/insight
+COPY start-app.sh start-app.sh
+#CMD ["./start-app.sh"]
+
 #ENTRYPOINT ["./finalsetup", "/home/insight/.npm-global/bin/bitcore", "start"]
+
+WORKDIR /home/insight
+COPY debug/dummyapp.js dummyapp.js
+CMD ["node", "dummyapp.js"]

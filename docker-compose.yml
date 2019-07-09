@@ -8,4 +8,4 @@ insight-mainnet:
   volumes:
     - ../blockchain-data:/home/insight/blockchain-data
     #- ~/tmp:/home/insight/blockchain-data
-  restart: always
+  #restart: always
