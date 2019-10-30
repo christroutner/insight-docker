@@ -34,7 +34,7 @@ RUN runuser -l insight -c "npm config set prefix '~/.npm-global'"
 # Clone the v0.19.x fork of the bitcoin-abc BCH full node with extra indexing
 RUN git clone https://github.com/valbergconsulting/bitcore-abc
 WORKDIR /home/insight/bitcore-abc
-RUN git checkout 0.19.6-bitcore
+RUN git checkout 0.20.4-bitcore
 
 # Install dependencies for building full node from source
 RUN apt-get install -y build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils libminiupnpc-dev libzmq3-dev libboost-all-dev libdb++-dev libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
