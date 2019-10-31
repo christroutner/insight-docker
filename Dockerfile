@@ -71,6 +71,11 @@ WORKDIR /home/insight/mynode-abc
 # Install insight API server and UI
 RUN /home/insight/.npm-global/bin/bitcore install osagga/insight-api#cash_v4 insight-ui
 
+# Overwrite the version guard that would cause errors
+COPY config/hacks/insight-api-bitcore-lib-index.js /home/insight/.npm-global/lib/node_modules/bitcore/node_modules/insight-api/node_modules/bitcore-lib/index.js
+COPY config/hacks/bitcore-message-bitcore-lib-index.js /home/insight/.npm-global/lib/node_modules/bitcore/node_modules/bitcore-message/node_modules/bitcore-lib/index.js
+
+
 # Copy *testnet* config
 #COPY config/testnet-example/bitcore-node.json /home/insight/mynode-abc
 COPY config/mainnet-example/bitcore-node.json /home/insight/mynode-abc
@@ -94,10 +99,10 @@ EXPOSE 28331
 
 WORKDIR /home/insight
 COPY start-app.sh start-app.sh
-#CMD ["./start-app.sh"]
+CMD ["./start-app.sh"]
 
 #ENTRYPOINT ["./finalsetup", "/home/insight/.npm-global/bin/bitcore", "start"]
 
-WORKDIR /home/insight
-COPY debug/dummyapp.js dummyapp.js
-CMD ["node", "dummyapp.js"]
+#WORKDIR /home/insight
+#COPY debug/dummyapp.js dummyapp.js
+#CMD ["node", "dummyapp.js"]
