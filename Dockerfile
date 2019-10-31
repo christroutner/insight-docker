@@ -75,10 +75,14 @@ RUN /home/insight/.npm-global/bin/bitcore install osagga/insight-api#cash_v4 ins
 COPY config/hacks/insight-api-bitcore-lib-index.js /home/insight/.npm-global/lib/node_modules/bitcore/node_modules/insight-api/node_modules/bitcore-lib/index.js
 COPY config/hacks/bitcore-message-bitcore-lib-index.js /home/insight/.npm-global/lib/node_modules/bitcore/node_modules/bitcore-message/node_modules/bitcore-lib/index.js
 
+# Create the directory architecture needed to set the bitcoin.conf file.
+RUN mkdir /home/insight/.bitcore
+RUN mkdir /home/insight/.bitcore/data
 
 # Copy *testnet* config
 #COPY config/testnet-example/bitcore-node.json /home/insight/mynode-abc
 COPY config/mainnet-example/bitcore-node.json /home/insight/mynode-abc
+COPY config/mainnet-example/bitcore-node.json /home/insight/.bitcore/bitcore-node.json
 
 # Copy the bitcoin.conf file to the blockchain-data dir.
 # Very important that this file is copied before starting bitcore.
