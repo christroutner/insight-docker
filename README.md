@@ -14,7 +14,7 @@ This branch targets BCH **mainnet**.
 ## Installation
 These directions are geared at Ubuntu 18.04 OS with at least 2GB of RAM,
 and a non-root user with sudo privledges.
-The testnet blockchain data takes up about 25GB of space.
+
 Your mileage may vary.
 
 1. It's always a good idea to add
