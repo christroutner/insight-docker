@@ -37,19 +37,14 @@ shows how to install Docker on a Ubuntu system.
 
 `mkdir ~/tmp`
 
-  - Be sure to update the docker-compose.yml file if you'd like the blockchain
-  to be stored in a different directory.
+  - Update the docker-compose.yml file to point to the directory where you want the blockchain data stored.
 
-* Build the Docker images by running:
-
-`docker-compose build`
-
-* After the Docker image has been build, you can start it:
+* Download and run the Docker image:
 
 `docker-compose up -d`
 
-* After the blockchain syncs, you can access the insight server at port 3001.
-You can check on progress with the command `docker logs insight-bch`.
+* After the blockchain syncs, you can access the insight server at port 3002.
+You can check on progress with the command `docker logs insight-mainnet`.
 
 **Note**: It's important that the
 [bitcoin.conf](config/testnet-example/bitcoin.conf)
