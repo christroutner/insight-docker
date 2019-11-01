@@ -1,7 +1,7 @@
 
 # insight-docker
 This repository contains a Docker Compose and Dockerfile for building
-a Docker-based Bitpay Insight API server and bitcoin-abc v19.6 full node.
+a Docker-based Bitpay Insight API server and bitcoin-abc v0.20.4 full node.
 This Dockerfile is based on
 [this gist](https://gist.github.com/christroutner/d43eebbe99e155b0558f97e450451124)
 walking through the setup of a BCH Insight server. At the moment, an Insight
