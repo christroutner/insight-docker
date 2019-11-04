@@ -69,7 +69,7 @@ RUN /home/insight/.npm-global/bin/bitcore create mynode-abc
 WORKDIR /home/insight/mynode-abc
 
 # Install insight API server and UI
-RUN /home/insight/.npm-global/bin/bitcore install osagga/insight-api#cash_v4 insight-ui
+RUN /home/insight/.npm-global/bin/bitcore install christroutner/insight-api#cash_v4 insight-ui
 
 # Overwrite the version guard that would cause errors
 COPY config/hacks/insight-api-bitcore-lib-index.js /home/insight/.npm-global/lib/node_modules/bitcore/node_modules/insight-api/node_modules/bitcore-lib/index.js

@@ -1,7 +1,7 @@
 insight-mainnet:
-  #build: .
-  #dockerfile: Dockerfile
-  image: christroutner/insight-bch-0.20.4
+  build: .
+  dockerfile: Dockerfile
+  #image: christroutner/insight-bch-0.20.4
   container_name: insight-mainnet
   ports:
     - "3002:3002"   # API endpoint
