@@ -103,10 +103,10 @@ EXPOSE 28331
 
 WORKDIR /home/insight
 COPY start-app.sh start-app.sh
-CMD ["./start-app.sh"]
+#CMD ["./start-app.sh"]
 
 #ENTRYPOINT ["./finalsetup", "/home/insight/.npm-global/bin/bitcore", "start"]
 
 #WORKDIR /home/insight
-#COPY debug/dummyapp.js dummyapp.js
-#CMD ["node", "dummyapp.js"]
+COPY debug/dummyapp.js dummyapp.js
+CMD ["node", "dummyapp.js"]

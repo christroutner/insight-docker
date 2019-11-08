@@ -9,7 +9,15 @@ echo 'password' | sudo -S pwd
 sudo cp /home/insight/.bitcoin/bitcoin.conf /home/insight/blockchain-data
 sudo cp /home/insight/.bitcoin/bitcoin.conf /home/insight/.bitcore/data/bitcoin.conf
 
-cat /home/insight/.bitcore/data/bitcoin.conf
+# Display the bitcore-node.json file:
+echo " "
+echo "/home/insight/.bitcore/bitcore-node.json:"
+cat /home/insight/.bitcore/bitcore-node.json
+
+# Display the bitcoin.conf file
+echo " "
+echo "/home/insight/blockchain-data/bitcoin.conf:"
+cat /home/insight/blockchain-data/bitcoin.conf
 
 # Start Bitcore/Insight
 /home/insight/.npm-global/bin/bitcore start
