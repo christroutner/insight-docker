@@ -98,5 +98,5 @@ COPY start-app.sh start-app.sh
 CMD ["./start-app.sh"]
 
 #WORKDIR /home/insight
-#COPY debug/dummyapp.js dummyapp.js
-#CMD ["node", "dummyapp.js"]
+COPY debug/dummyapp.js dummyapp.js
+CMD ["node", "dummyapp.js"]

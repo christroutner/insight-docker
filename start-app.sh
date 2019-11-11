@@ -19,5 +19,7 @@ echo " "
 echo "/home/insight/blockchain-data/bitcoin.conf:"
 cat /home/insight/blockchain-data/bitcoin.conf
 
+sleep 10
+
 # Start Bitcore/Insight
 /home/insight/.npm-global/bin/bitcore start
