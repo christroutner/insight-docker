@@ -31,7 +31,7 @@ RUN chown -R insight .npm-global
 RUN echo "export PATH=~/.npm-global/bin:$PATH" >> /home/insight/.profile
 RUN runuser -l insight -c "npm config set prefix '~/.npm-global'"
 
-# Clone the v0.19.x fork of the bitcoin-abc BCH full node with extra indexing
+# Clone the v0.20.x fork of the bitcoin-abc BCH full node with extra indexing
 RUN git clone https://github.com/valbergconsulting/bitcore-abc
 WORKDIR /home/insight/bitcore-abc
 RUN git checkout 0.20.4-bitcore
@@ -51,9 +51,9 @@ VOLUME /home/insight/blockchain-data
 RUN mkdir /home/insight/.bitcoin
 
 # Testnet configuration file
-#COPY config/testnet-example/bitcoin.conf /home/insight/.bitcoin/bitcoin.conf
+COPY config/testnet-example/bitcoin.conf /home/insight/.bitcoin/bitcoin.conf
 # Mainnet configuration file
-COPY config/mainnet-example/bitcoin.conf /home/insight/.bitcoin/bitcoin.conf
+#COPY config/mainnet-example/bitcoin.conf /home/insight/.bitcoin/bitcoin.conf
 
 # Switch to user account.
 USER insight
@@ -80,9 +80,10 @@ RUN mkdir /home/insight/.bitcore
 RUN mkdir /home/insight/.bitcore/data
 
 # Copy *testnet* config
-#COPY config/testnet-example/bitcore-node.json /home/insight/mynode-abc
-COPY config/mainnet-example/bitcore-node.json /home/insight/mynode-abc
-COPY config/mainnet-example/bitcore-node.json /home/insight/.bitcore/bitcore-node.json
+COPY config/testnet-example/bitcore-node.json /home/insight/mynode-abc
+COPY config/testnet-example/bitcore-node.json /home/insight/.bitcore/bitcore-node.json
+#COPY config/mainnet-example/bitcore-node.json /home/insight/mynode-abc
+#COPY config/mainnet-example/bitcore-node.json /home/insight/.bitcore/bitcore-node.json
 
 # Insight server UI
 # Testnet
@@ -95,7 +96,7 @@ EXPOSE 28331
 
 WORKDIR /home/insight
 COPY start-app.sh start-app.sh
-CMD ["./start-app.sh"]
+#CMD ["./start-app.sh"]
 
 #WORKDIR /home/insight
 COPY debug/dummyapp.js dummyapp.js
