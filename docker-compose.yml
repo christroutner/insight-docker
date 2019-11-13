@@ -7,6 +7,6 @@ insight-testnet:
     - "3001:3001"   # API endpoint
     - "28331:28331" # ZMQ port
   volumes:
-    - /mnt/dev_qa_insight_mainnet_nyc1/blockchain-data:/home/insight/blockchain-data
+    - /mnt/dev_qa_insight_api_v20_nyc1/blockchain-data:/home/insight/blockchain-data
     #- ~/tmp:/home/insight/blockchain-data
   restart: always
